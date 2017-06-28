@@ -31,7 +31,9 @@ using
   ProgressMeter,
   ImageMagick,
   ImageCore,
-  PyCall
+  PyCall,
+  Images,
+  ImageView
 
 using CloudGraphs,
   Neo4j,
@@ -177,7 +179,8 @@ export
   findExistingMSConstraints,
   getprpt2kde,
   rmInstMultisessionPriors!,
-  removeMultisessions!
+  removeMultisessions!,
+  corgi
 
 typealias VoidUnion{T} Union{Void, T}
 
@@ -207,6 +210,13 @@ include("cloudgraphs/MultisessionUtils.jl")
 include("cloudgraphs/ImageUtils.jl")
 include("cloudgraphs/FoveationUtils.jl")
 
+
+
+	function corgi()
+		@show cor="$(dirname(@__FILE__))/../doc/imgs/corgi.jpg"
+		img=load(cor)
+		imshow(img)
+	end	
 
 
 end
